@@ -1,0 +1,15 @@
+To DOOMS:
+
+	-Base de Datos:
+		*Tabla de usuarios
+		*Tabla de tipos de usuario
+		** Considerar una tabla para bitacora
+
+	-Programa base:
+		*Conexion con base de datos
+		*Pedir lectura de datos
+		*Verificar datos en la BD
+		*Agregar a la bitacora
+		*Impresion de salida
+		*Interfraz
+		*Agregar uso de pistola lectora de codigos de barras
