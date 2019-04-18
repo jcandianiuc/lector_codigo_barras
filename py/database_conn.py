@@ -4,17 +4,20 @@
 '''
 import mysql.connector
 
-def conexion_db(host,usuario,pas):
-	
-	try:
-		conn = mysql.connector.connect(
+
+'''
+	Esta funcion recibe:
+		- El host en el que se encuentra la bd (host)
+		- El usuario con el que se conectara a la bd (usuario)
+		- La contrasena que pertenece al usuario (pwd)
+		- La base de datos a la que se conectara (bd)
+'''
+
+def conexion_db(host,usuario,pwd,db):
+	conn = mysql.connector.connect(
   			host=host,
   			user=usuario,
-  			passwd=pas
+  			passwd=pwd,
+  			database=db
 		)
-	except mysql.connector.Error as err:
-		print("Error al conectarse a la base de datos:",err)
-		return None
-	else:
-		print "Conexion exitosa"
-		return conn
+	return conn
