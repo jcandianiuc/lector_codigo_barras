@@ -1,4 +1,5 @@
 from tkinter import *
+from py.eventos import *
 
 window=Tk()
 window.geometry("700x400+100+100")
@@ -27,4 +28,7 @@ txtmatricula= Entry(window, textvariable=entrada_matricula).place(x=170,y=67)
 txt_tipousuario= Entry(window, textvariable=entrada_tipousuario).place(x=170,y=211)
 txtcorreo= Entry(window, textvariable=entrada_correo).place(x=170,y=252)
 txtcontacto= Entry(window, textvariable=entrada_contacto).place(x=170,y=296)
+
+entrada_matricula.trace("w", lambda name, index, mode, sv=entrada_matricula: Busca_Usuario(entrada_matricula.get()))
+
 window.mainloop()

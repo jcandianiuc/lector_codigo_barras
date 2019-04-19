@@ -1,14 +1,15 @@
 To DOOMS:
 
 	-Base de Datos:
-		*Tabla de usuarios 
-		*Tabla de tipos de usuario
+		*Tabla de usuarios <- Completo
+		*Tabla de tipos de usuario <-Completo
 		** Considerar una tabla para bitacora
+		** Considerar un PROCEDURE para insertar y obtener datos a la vez
 
 	-Programa base:
 		*Conexion con base de datos <- Completado
 		*Pedir lectura de datos
-		*Verificar datos en la BD
+		*Verificar datos en la BD <- Parcial
 		*Agregar a la bitacora
 		*Impresion de salida
 		*Interfraz <- Parcial
