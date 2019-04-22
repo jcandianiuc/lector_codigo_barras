@@ -35,6 +35,7 @@ CREATE TABLE sexo(
   PRIMARY KEY (id_sexo)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+INSERT INTO sexo VALUES(1,"Masculino"),(2,"Femenino");
 --
 -- RELACIONES PARA LA TABLA sexo:
 --
@@ -116,3 +117,4 @@ CREATE TABLE registros(
 --   id_usuario
 --       usuario -> id_usuario
 --
+
