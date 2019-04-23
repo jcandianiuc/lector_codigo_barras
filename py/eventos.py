@@ -5,6 +5,8 @@ from config import *
 
 def Busca_Usuario(id,texts):
 	if len(id)<1:
+		for i in texts:
+			i.set('')
 		return
 
 	try:
@@ -16,9 +18,14 @@ def Busca_Usuario(id,texts):
 		tkMessageBox.showerror("Erro",err)
 	else:
 		#Agregar cambio de labels en la interfraz
-		for i in res:
-			texts[0].set(i[0])
-			texts[1].set(i[1])
-			texts[2].set(i[2])
-			texts[4].set(i[3])
+		if len(res) < 1 :
+			for i in texts:
+				i.set('')
+
+		else:
+			for i in res:
+				texts[0].set(i[0])
+				texts[1].set(i[1])
+				texts[2].set(i[2])
+				texts[3].set(i[3])
 
