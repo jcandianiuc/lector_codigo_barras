@@ -1,19 +1,27 @@
-To DOOMS:
-
-	-Base de Datos:
+Completados:
+		-Base de Datos:
 		*Tabla de usuarios <- Completo
 		*Tabla de tipos de usuario <-Completo
-		** Considerar una tabla para bitacora
-		** Considerar un PROCEDURE para insertar y obtener datos a la vez
+		** Considerar una tabla para bitacora <- Completo
 
 	-Programa base:
 		*Conexion con base de datos <- Completado
-		*Pedir lectura de datos
+		*Pedir lectura de datos <- Completado
+
+
+
+To DOOMS:
+
+	-Base de Datos:
+
+		** Considerar un PROCEDURE para insertar y obtener datos a la vez <- Necesario
+
+	-Programa base:
+
 		*Verificar datos en la BD <- Parcial
-		*Agregar a la bitacora
-		*Impresion de salida
+		*Agregar a la bitacora ( Es necesario el Procedure )
+		*Impresion de salida <- Parcial
 		*Interfraz <- Parcial
-		*Agregar uso de pistola lectora de codigos de barras
 
 	-Requerimientos para los archivos .py:
 		*Driver de python para conectarse con mysql

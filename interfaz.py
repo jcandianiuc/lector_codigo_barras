@@ -25,11 +25,10 @@ def Interfaz():
 	for i in range(5):
 		entradas.append(StringVar())
 
-
+	txtmatricula= Entry(window, textvariable=entradas[0]).place(x=170,y=67)
 	txtnombre= Entry(window, textvariable=entradas[1], state='disabled').place(x=170,y=106)
 	txtappat= Entry(window, textvariable=entradas[2], state='disabled').place(x=170,y=136)
 	txtapmat= Entry(window, textvariable=entradas[3], state='disabled').place(x=170,y=171)
-	txtmatricula= Entry(window, textvariable=entradas[0]).place(x=170,y=67)
 	txt_tipousuario= Entry(window, textvariable=entradas[4], state='disabled').place(x=170,y=211)
 
 
