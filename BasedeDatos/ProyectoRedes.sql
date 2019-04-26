@@ -105,8 +105,8 @@ CREATE TABLE usuario(
 CREATE TABLE registros(
   id_registro int(11) NOT NULL AUTO_INCREMENT,
   entrada datetime NOT NULL,
-  salida datetime NOT NULL,
-  comentario int(11) NOT NULL,
+  salida datetime ,
+  comentario VARCHAR(50) NOT NULL,
   id_usuario int(11) NOT NULL,
   PRIMARY KEY (id_registro),
   FOREIGN KEY (id_usuario) REFERENCES usuario(id_usuario)
@@ -118,3 +118,14 @@ CREATE TABLE registros(
 --       usuario -> id_usuario
 --
 
+--
+--	PROCEDURE registro
+--
+
+DELIMITER $
+CREATE PROCEDURE registro(IN id_u INT(3),IN entrada DATETIME, IN comment VARCHAR(50))
+BEGIN
+
+INSERT INTO registros(entrada,comentario,id_usuario) VALUES (entrada,comment,id_u);
+SELECT u.nombre,u.apellido_paterno,u.apellido_materno,t.tipoUsuario FROM usuario AS u, tipousuario AS t WHERE u.id_usuario=id_u  AND t.id_tipoUsuario = u.tipo_usuario ;
+END $

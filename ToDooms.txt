@@ -22,6 +22,7 @@ To DOOMS:
 		*Agregar a la bitacora ( Es necesario el Procedure )
 		*Impresion de salida <- Parcial
 		*Interfraz <- Parcial
+			** Falta hacer una ventana para el caso en el que entre algun visitante
 
 	-Requerimientos para los archivos .py:
 		*Driver de python para conectarse con mysql
