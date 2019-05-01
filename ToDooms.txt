@@ -1,20 +1,10 @@
-Completados:
-		-Base de Datos:
-		*Tabla de usuarios <- Completo
-		*Tabla de tipos de usuario <-Completo
-		** Considerar una tabla para bitacora <- Completo
+DOING:
 
 	-Programa base:
-		*Conexion con base de datos <- Completado
-		*Pedir lectura de datos <- Completado
+		*Interfraz <- Parcial
+			** Ventana para el caso en el que entre algun visitante
 
-
-
-To DOOMS:
-
-	-Base de Datos:
-
-		** Considerar un PROCEDURE para insertar y obtener datos a la vez <- Necesario
+TO DO:
 
 	-Programa base:
 
@@ -27,3 +17,18 @@ To DOOMS:
 	-Requerimientos para los archivos .py:
 		*Driver de python para conectarse con mysql
 			python -m pip install mysql-connector
+
+DONE:
+		-Base de Datos:
+		*Tabla de usuarios <- Completo
+		*Tabla de tipos de usuario <-Completo
+		** Considerar una tabla para bitacora <- Completo
+
+	-Programa base:
+		*Conexion con base de datos <- Completado
+		*Pedir lectura de datos <- Completado
+
+TEST:
+	-Base de Datos:
+
+		** Considerar un PROCEDURE para insertar y obtener datos a la vez <- test
