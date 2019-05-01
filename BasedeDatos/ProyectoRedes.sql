@@ -1,131 +1,104 @@
--- phpMyAdmin SQL Dump
--- version 5.0.0-dev
--- https://www.phpmyadmin.net/
---
--- Servidor: 192.168.30.23
--- Tiempo de generación: 17-04-2019 a las 00:38:48
--- Versión del servidor: 8.0.3-rc-log
--- Versión de PHP: 7.2.16-1+0~20190307202415.17+stretch~1.gbpa7be82
-
-SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
-START TRANSACTION;
-SET time_zone = "+00:00";
-
-
-/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
-/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
-/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8mb4 */;
+-- --------------------------------------------------------
 
 --
--- Base de datos: ProyectoRedes
+-- Base de datos: `ProyectoRedes`
 --
+
 CREATE DATABASE IF NOT EXISTS ProyectoRedes;
 USE ProyectoRedes;
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla sexo
---
-
-CREATE TABLE sexo(
-  id_sexo int(4) NOT NULL AUTO_INCREMENT,
-  tipo_sexo varchar(40) NOT NULL,
-  PRIMARY KEY (id_sexo)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
-INSERT INTO sexo VALUES(1,"Masculino"),(2,"Femenino");
---
--- RELACIONES PARA LA TABLA sexo:
---
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla tipoUsuario
+-- Estructura de tabla para la tabla `registros`
 --
 
-CREATE TABLE tipoUsuario(
-  id_tipoUsuario int(3) NOT NULL AUTO_INCREMENT,
-  tipoUsuario varchar(30) NOT NULL,
-  PRIMARY KEY (id_tipoUsuario)
+CREATE TABLE `registros` (
+  `idRegistro` int(4) NOT NULL,
+  `diaHoraEntrada` datetime NOT NULL,
+  `diaHoraSalida` datetime NOT NULL,
+  `comentario` varchar(50) NOT NULL,
+  `idUsuario` int(4) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- RELACIONES PARA LA TABLA tipoUsuario:
---
-
---
--- Volcado de datos para la tabla tipoUsuario
---
-
-
-
-INSERT INTO tipoUsuario(id_tipoUsuario, tipoUsuario) VALUES
-(1, 'Estudiante'),(2, 'Maestro'),(3, 'Visitante');
-
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla usuario
+-- Estructura de tabla para la tabla `sexo`
 --
 
-CREATE TABLE usuario(
-  id_usuario int(3) NOT NULL AUTO_INCREMENT,
-  nombre varchar(50) NOT NULL,
-  apellido_paterno varchar(50) NOT NULL,
-  apellido_materno varchar(50) NULL,
-  edad int(4) NULL,
-  correo text,
-  sexo int NOT NULL,
-  tipo_usuario int(4) NOT NULL,
-  PRIMARY KEY (id_usuario),
-  FOREIGN KEY (sexo) REFERENCES sexo(id_sexo),
-  FOREIGN KEY (tipo_usuario) REFERENCES tipoUsuario(id_tipoUsuario)
+CREATE TABLE `sexo` (
+  `idSexo` int(4) NOT NULL,
+  `tipoSexo` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+-- --------------------------------------------------------
+
 --
--- RELACIONES PARA LA TABLA usuario:
---   tipo_usuario
---       tipoUsuario -> id_tipousuario
+-- Estructura de tabla para la tabla `tipoUsuario`
 --
+
+CREATE TABLE `tipoUsuario` (
+  `idTipoUsuario` int(4) NOT NULL,
+  `tipoUsuario` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `usuario`
+--
+
+CREATE TABLE `usuario` (
+  `idUsuario` int(4) NOT NULL,
+  `nombre` varchar(50) NOT NULL,
+  `apellido` varchar(50) NOT NULL,
+  `edad` int(4) DEFAULT NULL,
+  `correo` varchar(50) DEFAULT NULL,
+  `idSexo` int(4) DEFAULT NULL,
+  `idTipoUsuario` int(4) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Índices para tablas volcadas
 --
 
--- --------------------------------------------------------
+--
+-- Indices de la tabla `registros`
+--
+ALTER TABLE `registros`
+  ADD PRIMARY KEY (`idRegistro`),
+  ADD KEY `idUsuario` (`idUsuario`);
 
 --
--- Estructura de tabla para la tabla registros
+-- Indices de la tabla `sexo`
 --
-
-CREATE TABLE registros(
-  id_registro int(11) NOT NULL AUTO_INCREMENT,
-  entrada datetime NOT NULL,
-  salida datetime ,
-  comentario VARCHAR(50) NOT NULL,
-  id_usuario int(11) NOT NULL,
-  PRIMARY KEY (id_registro),
-  FOREIGN KEY (id_usuario) REFERENCES usuario(id_usuario)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+ALTER TABLE `sexo`
+  ADD PRIMARY KEY (`idSexo`);
 
 --
--- RELACIONES PARA LA TABLA registros:
---   id_usuario
---       usuario -> id_usuario
+-- Indices de la tabla `tipoUsuario`
+--
+ALTER TABLE `tipoUsuario`
+  ADD PRIMARY KEY (`idTipoUsuario`);
+
+--
+-- Indices de la tabla `usuario`
+--
+ALTER TABLE `usuario`
+  ADD PRIMARY KEY (`idUsuario`),
+  ADD KEY `idSexo` (`idSexo`),
+  ADD KEY `idTipoUsuario` (`idTipoUsuario`);
+
+--
+-- Restricciones para tablas volcadas
 --
 
 --
---	PROCEDURE registro
+-- Filtros para la tabla `usuario`
 --
+ALTER TABLE `usuario`
+  ADD CONSTRAINT `usuario_ibfk_1` FOREIGN KEY (`idUsuario`) REFERENCES `registros` (`idusuario`) ON DELETE CASCADE ON UPDATE CASCADE;
+COMMIT;
 
-DELIMITER $
-CREATE PROCEDURE registro(IN id_u INT(3),IN entrada DATETIME, IN comment VARCHAR(50))
-BEGIN
 
-INSERT INTO registros(entrada,comentario,id_usuario) VALUES (entrada,comment,id_u);
-SELECT u.nombre,u.apellido_paterno,u.apellido_materno,t.tipoUsuario FROM usuario AS u, tipousuario AS t WHERE u.id_usuario=id_u  AND t.id_tipoUsuario = u.tipo_usuario ;
-END $
