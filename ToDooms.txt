@@ -1,8 +1,17 @@
 DOING:
 
 	-Programa base:
-		*Interfraz <- Parcial
+		*Interfaz <- Parcial
 			** Ventana para el caso en el que entre algun visitante
+			
+	-Base de Datos:	
+		
+		**Considerar usar 2 PROCEDURE 
+		
+			* Actualizar e Insertar
+				*hora entrada y salida
+				
+			* Otro para consultar con diferentes parametros (ya sea por id, nombre o por fechas)
 
 TO DO:
 
@@ -29,6 +38,4 @@ DONE:
 		*Pedir lectura de datos <- Completado
 
 TEST:
-	-Base de Datos:
-
-		** Considerar un PROCEDURE para insertar y obtener datos a la vez <- test
+	--
