@@ -1,20 +1,23 @@
-Completados:
-		-Base de Datos:
-		*Tabla de usuarios <- Completo
-		*Tabla de tipos de usuario <-Completo
-		** Considerar una tabla para bitacora <- Completo
+DOING:
 
 	-Programa base:
 		*Conexion con base de datos <- Completado
 		*Pedir lectura de datos <- Completado
 
-
-
-To DOOMS:
-
 	-Base de Datos:
 
 		** Considerar un PROCEDURE para insertar y obtener datos a la vez <- Parcial
+		*Interfaz <- Parcial
+			** Ventana para el caso en el que entre algun visitante
+			
+	-Base de Datos:	
+		
+		**Considerar usar 2 PROCEDURE  
+		
+			* Actualizar e Insertar
+				*hora entrada y salida
+				
+			* Otro para consultar con diferentes parametros (ya sea por id, nombre o por fechas)
 
 	-Programa base:
 
@@ -27,6 +30,21 @@ To DOOMS:
 		*Agregar cambio de ventanas
 			** De la principal a la de visitante y viceversa
 
+TO DO:
+
 	-Requerimientos para los archivos .py:
 		*Driver de python para conectarse con mysql
 			python -m pip install mysql-connector
+
+DONE:
+		-Base de Datos:
+		*Tabla de usuarios <- Completo
+		*Tabla de tipos de usuario <-Completo
+		** Considerar una tabla para bitacora <- Completo
+
+	-Programa base:
+		*Conexion con base de datos <- Completado
+		*Pedir lectura de datos <- Completado
+
+TEST:
+	--
