@@ -8,7 +8,7 @@ MatriculaLabel=Label(text="Nombre:", font=("Arial",14)).place(x=10, y=60)
 NombreLabel=Label(text="Apellido Paterno:", font=("Arial",14)).place(x=10, y=100)
 APLabel=Label(text="Apellido Materno:", font=("Arial",14)).place(x=10, y=135)
 AMLabel=Label(text="Tipo Usuario:", font=("Arial",14)).place(x=10, y=170)
-TipoLabel=Label(text="Correo:", font=("Arial",14)).place(x=10, y=205)
+TipoLabel=Label(text="Correo:", font=("Arial",14)).place(x=10, y=205) #Ese dato esta de mas, al ser un visitante siempre sera del tipo visitante
 AreaLabel=Label(text="Area que visita:", font=("Arial",14)).place(x=10, y=246)
 
 entrada_nombre=StringVar()

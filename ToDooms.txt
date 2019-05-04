@@ -14,7 +14,7 @@ To DOOMS:
 
 	-Base de Datos:
 
-		** Considerar un PROCEDURE para insertar y obtener datos a la vez <- Necesario
+		** Considerar un PROCEDURE para insertar y obtener datos a la vez <- Parcial
 
 	-Programa base:
 
@@ -22,7 +22,10 @@ To DOOMS:
 		*Agregar a la bitacora ( Es necesario el Procedure )
 		*Impresion de salida <- Parcial
 		*Interfraz <- Parcial
-			** Falta hacer una ventana para el caso en el que entre algun visitante
+			** Falta hacer una ventana para el caso en el que entre algun visitante <-- Parcial
+		*Probar el uso de procedures en el programa
+		*Agregar cambio de ventanas
+			** De la principal a la de visitante y viceversa
 
 	-Requerimientos para los archivos .py:
 		*Driver de python para conectarse con mysql
