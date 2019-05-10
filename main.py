@@ -1,3 +1,5 @@
 from interfaz import *
 
-Interfaz()
+root = Tk()
+app = Interfraz(master=root)
+app.mainloop()

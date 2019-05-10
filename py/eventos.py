@@ -28,6 +28,7 @@ def Busca_Usuario(id,texts):
 		if len(res) < 1 :
 			for i in texts:
 				i.set('')
+			tkMessageBox.showerror("Error","No se encuentra el usuario")
 
 		else:
 			for i in res:
