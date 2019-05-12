@@ -3,6 +3,8 @@
 '''
 
 from database_conn import *
+import time    
+
 
 '''
 	Esta funcion recibe:
@@ -22,9 +24,14 @@ def realiza_consulta(query,host,usuario,pwd,db):
 		cursor.close()
 		return result
 
-def ejecuta_procedure(proc,id,host,usuario,pwd,db):
+def ejecuta_procedure(proc,id,comment,host,usuario,pwd,db):
 		conn = conexion_db(host,usuario,pwd,db)
 		cursor = conn.cursor()
-		cursor.callproc(proc,[id])
+		now = time.strftime('%Y-%m-%d %H:%M:%S')
+		args = (id,now,comment)
+		print args
+		cursor.callproc(proc,args)
+		conn.commit()
 		conn.close()
 		return cursor
+

@@ -33,5 +33,5 @@ class Visitante(Frame):
 
 
 root = Tk()
-app = Interfraz(master=root)
+app = Visitante(master=root)
 app.mainloop()

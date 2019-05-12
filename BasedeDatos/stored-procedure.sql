@@ -40,3 +40,33 @@ BEGIN
 	INSERT INTO registros(diaHoraEntrada, diaHoraSalida, comentario) VALUES (@entrada, @salida, @comentario);
 END
 GO
+
+-- PROCEDURE ALTERNATIVO
+
+DELIMITER $
+CREATE PROCEDURE registro (IN idusuario INT, IN entradai DATETIME, IN comment TEXT)
+BEGIN
+DECLARE entries INT DEFAULT NULL; 
+DECLARE idreg INT DEFAULT NULL;
+SET entries = (SELECT COUNT(id_registro) FROM registros WHERE entrada >= (entradai - INTERVAL 1 DAY) AND id_usuario = idusuario AND salida IS NULL
+);
+
+IF (entries) < 1 THEN
+BEGIN
+	INSERT INTO registros(entrada,comentario,id_usuario) VALUES (entradai,comment,idusuario);
+
+END;
+
+ELSE
+BEGIN
+	SET idreg = ( SELECT id_registro FROM registros WHERE entrada >= (entradai - INTERVAL 1 DAY) AND id_usuario = idusuario AND salida IS NULL );
+	UPDATE registros SET salida = NOW() WHERE id_registro = idreg;
+END;
+END IF;
+
+	SELECT u.nombre,u.apellido_paterno,u.apellido_materno, tu.tipoUsuario FROM usuario AS u, tipousuario AS tu WHERE u.tipo_usuario = tu.id_tipoUsuario AND u.id_usuario = idusuario; 
+
+	
+
+END $
+DELIMITER ;

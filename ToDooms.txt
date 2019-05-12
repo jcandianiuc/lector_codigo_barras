@@ -1,36 +1,19 @@
 DOING:
 
-	-Programa base:
-		*Conexion con base de datos <- Completado
-		*Pedir lectura de datos <- Completado
-
 	-Base de Datos:
 
-		** Considerar un PROCEDURE para insertar y obtener datos a la vez <- Parcial
-		*Interfaz <- Parcial
+	-Interfaz <- Parcial
 			** Ventana para el caso en el que entre algun visitante
 			
-	-Base de Datos:	
-		
-		**Considerar usar 2 PROCEDURE  
-		
-			* Actualizar e Insertar
-				*hora entrada y salida
-				
-			* Otro para consultar con diferentes parametros (ya sea por id, nombre o por fechas)
 
 	-Programa base:
-
-		*Verificar datos en la BD <- Parcial
-		*Agregar a la bitacora ( Es necesario el Procedure )
-		*Impresion de salida <- Parcial
 		*Interfraz <- Parcial
 			** Falta hacer una ventana para el caso en el que entre algun visitante <-- Parcial
-		*Probar el uso de procedures en el programa
+
 		*Agregar cambio de ventanas
 			** De la principal a la de visitante y viceversa <-- Parcial ( Falta realizar el cambio correctamente )
 
-TO DO:
+REQUIRED:
 
 	-Requerimientos para los archivos .py:
 		*Driver de python para conectarse con mysql
@@ -41,10 +24,20 @@ DONE:
 		*Tabla de usuarios <- Completo
 		*Tabla de tipos de usuario <-Completo
 		** Considerar una tabla para bitacora <- Completo
+	
+		**Considerar usar 1 PROCEDURE  
+		
+			* Registro de entrada o salida de usuarios
+				*hora entrada y salida
+
 
 	-Programa base:
+		*Verificar datos en la BD <- Completado
 		*Conexion con base de datos <- Completado
 		*Pedir lectura de datos <- Completado
+		*Agregar a la bitacora ( Es necesario el Procedure ) <- Completado
+		*Impresion de salida <- Completado
 
 TEST:
-	--
+	-Programa base:
+		*Probar el uso de procedures en el programa

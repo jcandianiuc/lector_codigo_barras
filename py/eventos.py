@@ -4,8 +4,8 @@ from database_query import *
 from config import *
 import re
 
-def Busca_Usuario(id,texts):
 
+def Busca_Usuario(id,texts,comment="Estudiante"):
 	if len(id)<1:
 		for i in texts:
 			i.set('')
@@ -17,13 +17,9 @@ def Busca_Usuario(id,texts):
 		return 
 
 	try:
-		#Cambiar query para la base de datos
+		proc = "registro"
 
-		#query = "SELECT u.nombre,u.apellido_paterno,u.apellido_materno,t.tipoUsuario FROM usuario AS u, tipousuario AS t WHERE id_usuario="+ id + "  AND t.id_tipoUsuario = u.tipo_usuario ;"
-		#Cambiar las variables host,user,pwd y db por los valores en la bd
-		#res = realiza_consulta(query,host,user,pwd,db)
-		proc = "show_user"
-		cursor = ejecuta_procedure(proc,id,host,user,pwd,db)
+		cursor = ejecuta_procedure(proc,id,comment,host,user,pwd,db)
 
 		for result in cursor.stored_results():
 				res = result.fetchall()
@@ -36,8 +32,8 @@ def Busca_Usuario(id,texts):
 				else:
 					for i in texts:
 						i.set('')
-					tkMessageBox.showerror("Error","Usuario no encontrado")
+
 
 	except mysql.connector.Error as err:
-		tkMessageBox.showerror("Error",err)
+		tkMessageBox.showerror("Error","Usuario no encontrado")
 

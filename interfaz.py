@@ -25,10 +25,10 @@ class Interfraz(Frame):
 
 	def Crea_Interfaz(self):
 		
-		self.master.geometry("700x400+100+100")
+		self.master.geometry("400x350")
 		self.master.title("Ejemplo")
 
-		self.TitleLabel=Label(text="Datos Usuario", font=("Arial",14)).place(x=290, y=5)
+		self.TitleLabel=Label(text="Datos Usuario", font=("Arial",14)).place(x=150, y=5)
 		self.MatriculaLabel=Label(text="Matricula:", font=("Arial",14)).place(x=10, y=60)
 		self.NombreLabel=Label(text="Nombre:", font=("Arial",14)).place(x=10, y=100)
 		self.APLabel=Label(text="Apellido Paterno:", font=("Arial",14)).place(x=10, y=135)
@@ -46,8 +46,9 @@ class Interfraz(Frame):
 		self.txt_tipousuario= Entry(self.master, textvariable=self.entradas[4], state='disabled').place(x=170,y=211)
 		self.entradas[0].trace("w", lambda name, index, mode, sv=self.entradas[0]: Busca_Usuario(self.entradas[0].get(),self.entradas[1:]))
 
-		self.btn = Button( self,text="Close", command=self.Abre_Visitante())
+		self.btn = Button( self.master,text="Visitante", command=self.Abre_Visitante)
 		self.btn.pack()
+		self.btn.place(x="350",y="300")
 
 	def __init__(self,master=None):
 		Frame.__init__(self,master)
