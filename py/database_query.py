@@ -29,7 +29,6 @@ def ejecuta_procedure(proc,id,comment,host,usuario,pwd,db):
 		cursor = conn.cursor()
 		now = time.strftime('%Y-%m-%d %H:%M:%S')
 		args = (id,now,comment)
-		print args
 		cursor.callproc(proc,args)
 		conn.commit()
 		conn.close()
