@@ -26,8 +26,5 @@ def ejecuta_procedure(proc,id,host,usuario,pwd,db):
 		conn = conexion_db(host,usuario,pwd,db)
 		cursor = conn.cursor()
 		cursor.callproc(proc,[id])
-		res = cursor.stored_results()
-		result = res.fetchall()
 		conn.close()
-		cursor.close()
-		return result
+		return cursor

@@ -54,7 +54,4 @@ class Interfraz(Frame):
 		self.pack()
 		self.Crea_Interfaz()
 
-root = Tk()
-app = Interfraz(master=root)
-app.mainloop()
 
